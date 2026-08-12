@@ -8,15 +8,15 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({
-  width = 132,
-  height = 38,
+  width = 168,
+  height = 97,
   priority = false,
   className = "",
 }: BrandLogoProps) {
   return (
     <Image
       src="/logo.png"
-      alt="SMNRA"
+      alt="Somnara"
       width={width}
       height={height}
       priority={priority}

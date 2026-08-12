@@ -64,8 +64,13 @@ input {
 
 .brand-logo {
   height: auto;
-  border-radius: 0.45rem;
+  border-radius: 0.6rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.brand-logo--nav {
+  max-height: 3.15rem;
+  width: auto;
 }
 
 .site-shell {

@@ -19,10 +19,8 @@ export default function HomePage() {
         <div className="container relative grid min-h-[calc(100svh-4.25rem)] items-center py-16 md:py-20">
           <div className="max-w-xl">
             <p className="eyebrow fade-up">Mattresses, pillows, foundations</p>
-            <BrandLogo width={280} height={81} priority className="fade-up mt-5" />
-            <h1 className="font-display fade-up-delay mt-4 text-[clamp(3.2rem,8vw,5.6rem)] leading-[0.95] tracking-tight">
-              Som<span className="text-[var(--ember)]">nara</span>
-            </h1>
+            <BrandLogo width={420} height={243} priority className="fade-up mt-5" />
+            <h1 className="sr-only">Somnara</h1>
             <p className="fade-up-delay-2 mt-5 max-w-md text-lg leading-relaxed text-[var(--ink-muted)]">
               Sleep systems engineered as a set—hybrids, latex, pillows, and
               box springs that share the same cover language and sizing.

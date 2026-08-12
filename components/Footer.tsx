@@ -6,12 +6,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-[var(--line)]">
       <div className="container grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-3">
-            <BrandLogo width={156} height={45} />
-            <p className="font-display text-3xl font-semibold tracking-tight">
-              Som<span className="text-[var(--ember)]">nara</span>
-            </p>
-          </div>
+          <BrandLogo width={200} height={116} />
           <p className="mt-3 max-w-sm text-[var(--ink-muted)] leading-relaxed">
             Mattresses, pillows, and foundations built as a complete sleep
             system—not a pile of unrelated SKUs.

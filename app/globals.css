@@ -63,8 +63,9 @@ input {
 }
 
 .brand-logo {
-  border-radius: 999px;
-  box-shadow: 0 0 0 1px rgba(201, 163, 106, 0.28), 0 8px 24px rgba(201, 163, 106, 0.22);
+  height: auto;
+  border-radius: 0.45rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 .site-shell {

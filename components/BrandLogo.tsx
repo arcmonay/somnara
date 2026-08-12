@@ -1,22 +1,24 @@
 import Image from "next/image";
 
 type BrandLogoProps = {
-  size?: number;
+  width?: number;
+  height?: number;
   priority?: boolean;
   className?: string;
 };
 
 export function BrandLogo({
-  size = 40,
+  width = 132,
+  height = 38,
   priority = false,
   className = "",
 }: BrandLogoProps) {
   return (
     <Image
       src="/logo.png"
-      alt="Somnara owl mark"
-      width={size}
-      height={size}
+      alt="SMNRA"
+      width={width}
+      height={height}
       priority={priority}
       className={`brand-logo ${className}`.trim()}
     />

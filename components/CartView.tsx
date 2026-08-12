@@ -10,13 +10,12 @@ export function CartView() {
 
   if (!items.length) {
     return (
-      <div className="border border-[var(--line)] bg-white/5 p-10 text-center">
-        <h2 className="font-display text-3xl tracking-tight">Your cart is empty</h2>
-        <p className="mt-3 text-[var(--ink-muted)]">
-          Add a mattress, pillow, or bedroom bundle from the shop.
+      <div className="max-w-md">
+        <p className="text-lg text-[var(--ink-muted)]">
+          The tray is empty. Request a bed from the linen closet.
         </p>
-        <Link href="/shop" className="btn btn-primary mt-8">
-          Continue shopping
+        <Link href="/shop" className="linen-link">
+          Walk the house →
         </Link>
       </div>
     );

@@ -16,14 +16,14 @@ export function AddToCartButton({
   return (
     <button
       type="button"
-      className={`btn btn-primary ${className}`}
+      className={`linen-link ${className}`.trim()}
       onClick={() => {
         addItem(handle);
         setAdded(true);
         window.setTimeout(() => setAdded(false), 1400);
       }}
     >
-      {added ? "Added" : "Add to cart"}
+      {added ? "On the tray" : "Send to the tray →"}
     </button>
   );
 }

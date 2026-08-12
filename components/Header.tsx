@@ -6,11 +6,11 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { useCart } from "@/lib/cart-context";
 
 const links = [
-  { href: "/shop", label: "Shop" },
+  { href: "/shop", label: "The beds" },
   { href: "/collections/mattresses", label: "Mattresses" },
-  { href: "/collections/pillows", label: "Pillows" },
+  { href: "/collections/pillows", label: "Down" },
   { href: "/sleep", label: "Sleep" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "House" },
 ];
 
 export function Header() {
@@ -18,49 +18,29 @@ export function Header() {
   const { count } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg)_82%,transparent)] backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between gap-4 md:h-[4.25rem]">
-        <Link href="/" className="group flex items-center gap-3">
-          <BrandLogo width={44} height={44} priority className="brand-logo--nav shrink-0" />
-          <span className="font-display text-xl font-semibold tracking-[0.12em] text-[var(--ink)]">
-            SOMNARA
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-6 md:flex">
-          {links.map((link) => {
-            const active =
-              pathname === link.href || pathname.startsWith(`${link.href}/`);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm transition-colors ${
-                  active
-                    ? "text-[var(--ink)]"
-                    : "text-[var(--ink-muted)] hover:text-[var(--ink)]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <Link href="/shop" className="btn btn-ghost !min-h-10 !px-3 md:hidden">
-            Shop
-          </Link>
-          <Link href="/cart" className="btn btn-ghost !min-h-10 relative !px-4">
-            Cart
-            {count > 0 && (
-              <span className="ml-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--ember)] px-1 text-[0.7rem] font-bold text-[#05070a]">
-                {count}
-              </span>
-            )}
-          </Link>
-        </div>
-      </div>
+    <header className="headboard">
+      <Link href="/cart" className="tray">
+        Tray{count > 0 ? ` ${count}` : ""}
+      </Link>
+      <Link href="/" className="monogram">
+        <BrandLogo width={72} height={72} priority />
+        <span className="font-display suite-mark">SOMNARA</span>
+      </Link>
+      <nav className="stitches">
+        {links.map((link) => {
+          const active =
+            pathname === link.href || pathname.startsWith(`${link.href}/`);
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={active ? "is-active" : ""}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+      </nav>
     </header>
   );
 }

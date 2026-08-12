@@ -1,69 +1,17 @@
 import Link from "next/link";
-import { BrandLogo } from "@/components/BrandLogo";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-[var(--line)]">
-      <div className="container grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <div className="flex items-center gap-3">
-            <BrandLogo width={56} height={56} />
-            <p className="font-display text-2xl font-semibold tracking-[0.12em] text-[var(--ink)]">
-              SOMNARA
-            </p>
-          </div>
-          <p className="mt-3 max-w-sm text-[var(--ink-muted)] leading-relaxed">
-            Mattresses, pillows, and foundations built as a complete sleep
-            system—not a pile of unrelated SKUs.
-          </p>
-        </div>
-        <div>
-          <p className="eyebrow">Shop</p>
-          <ul className="mt-4 space-y-2 text-sm text-[var(--ink-muted)]">
-            <li>
-              <Link href="/shop" className="hover:text-[var(--ink)]">
-                All products
-              </Link>
-            </li>
-            <li>
-              <Link href="/collections/mattresses" className="hover:text-[var(--ink)]">
-                Mattresses
-              </Link>
-            </li>
-            <li>
-              <Link href="/collections/pillows" className="hover:text-[var(--ink)]">
-                Pillows
-              </Link>
-            </li>
-            <li>
-              <Link href="/collections/bundles" className="hover:text-[var(--ink)]">
-                Bundles
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p className="eyebrow">Company</p>
-          <ul className="mt-4 space-y-2 text-sm text-[var(--ink-muted)]">
-            <li>
-              <Link href="/sleep" className="hover:text-[var(--ink)]">
-                Sleep
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-[var(--ink)]">
-                About
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-[var(--line)]">
-        <div className="container flex flex-col gap-2 py-5 text-xs text-[var(--ink-faint)] sm:flex-row sm:justify-between">
-          <p>© 2025 Somnara. Built for Shopify catalog import.</p>
-          <p>Sleep products, not medical devices.</p>
-        </div>
-      </div>
+    <footer className="footboard">
+      <p className="font-display goodnight">good night</p>
+      <nav>
+        <Link href="/shop">The beds</Link>
+        <Link href="/collections/mattresses">Mattresses</Link>
+        <Link href="/sleep">Sleep</Link>
+        <Link href="/about">House</Link>
+        <Link href="/cart">Tray</Link>
+      </nav>
+      <p>© 2025 Somnara. Sleep products, not medical devices.</p>
     </footer>
   );
 }

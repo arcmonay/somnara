@@ -39,7 +39,7 @@ export default async function ProductPage({ params }: { params: Params }) {
 
   return (
     <>
-      <article className="container grid gap-10 py-10 md:grid-cols-2 md:py-16">
+      <article className="suite-page grid gap-10 md:grid-cols-2">
         <ProductVisual product={product} priority className="!aspect-square" />
         <div>
           {collection ? (
@@ -88,10 +88,10 @@ export default async function ProductPage({ params }: { params: Params }) {
       </article>
 
       {related.length ? (
-        <section className="container pb-16">
+        <section className="suite-page pt-0">
           <div className="mb-8 max-w-xl">
             <h2 className="font-display text-3xl tracking-tight">
-              Related in {collection?.title ?? "this collection"}
+              Also in this room
             </h2>
             <p className="mt-2 text-[var(--ink-muted)]">
               More options with a similar form factor.

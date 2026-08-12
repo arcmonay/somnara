@@ -60,7 +60,7 @@ export function Footer() {
       </div>
       <div className="border-t border-[var(--line)]">
         <div className="container flex flex-col gap-2 py-5 text-xs text-[var(--ink-faint)] sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Somnara. Built for Shopify catalog import.</p>
+          <p>© 2025 Somnara. Built for Shopify catalog import.</p>
           <p>Sleep products, not medical devices.</p>
         </div>
       </div>

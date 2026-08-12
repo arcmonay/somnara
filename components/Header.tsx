@@ -21,9 +21,9 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg)_82%,transparent)] backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between gap-4 md:h-[4.25rem]">
         <Link href="/" className="group flex items-center gap-3">
-          <BrandLogo width={168} height={97} priority className="brand-logo--nav shrink-0" />
-          <span className="hidden text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[var(--ink-faint)] sm:inline">
-            Sleep Systems
+          <BrandLogo width={44} height={44} priority className="brand-logo--nav shrink-0" />
+          <span className="font-display text-xl font-semibold tracking-[0.12em] text-[var(--ink)]">
+            SOMNARA
           </span>
         </Link>
 
@@ -54,7 +54,7 @@ export function Header() {
           <Link href="/cart" className="btn btn-ghost !min-h-10 relative !px-4">
             Cart
             {count > 0 && (
-              <span className="ml-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--ember)] px-1 text-[0.7rem] font-bold text-[#1a1d2e]">
+              <span className="ml-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--ember)] px-1 text-[0.7rem] font-bold text-[#05070a]">
                 {count}
               </span>
             )}

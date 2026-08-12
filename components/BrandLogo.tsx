@@ -8,8 +8,8 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({
-  width = 168,
-  height = 97,
+  width = 48,
+  height = 48,
   priority = false,
   className = "",
 }: BrandLogoProps) {

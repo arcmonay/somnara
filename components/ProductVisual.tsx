@@ -12,7 +12,7 @@ export function ProductVisual({ product, className = "", priority = false }: Pro
 
   return (
     <div
-      className={`relative aspect-[4/5] overflow-hidden border border-[var(--line)] bg-[#16141c] ${className}`}
+      className={`relative aspect-[4/5] overflow-hidden border border-[var(--line)] bg-[#05070a] ${className}`}
     >
       <Image
         src={src}

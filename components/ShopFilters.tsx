@@ -28,8 +28,8 @@ export function ShopFilters({ collections }: { collections: Collection[] }) {
           onClick={() => update({ collection: "all" })}
           className={`rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors ${
             active === "all"
-              ? "border-[var(--ember)] bg-[rgba(201,163,106,0.18)] text-[var(--ink)]"
-              : "border-[var(--line)] text-[var(--ink-muted)] hover:border-[rgba(201,163,106,0.4)]"
+              ? "border-[var(--ember)] bg-[rgba(212,193,165,0.18)] text-[var(--ink)]"
+              : "border-[var(--line)] text-[var(--ink-muted)] hover:border-[rgba(212,193,165,0.4)]"
           }`}
         >
           All
@@ -41,8 +41,8 @@ export function ShopFilters({ collections }: { collections: Collection[] }) {
             onClick={() => update({ collection: c.handle })}
             className={`rounded-full border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors ${
               active === c.handle
-                ? "border-[var(--ember)] bg-[rgba(201,163,106,0.18)] text-[var(--ink)]"
-                : "border-[var(--line)] text-[var(--ink-muted)] hover:border-[rgba(201,163,106,0.4)]"
+                ? "border-[var(--ember)] bg-[rgba(212,193,165,0.18)] text-[var(--ink)]"
+                : "border-[var(--line)] text-[var(--ink-muted)] hover:border-[rgba(212,193,165,0.4)]"
             }`}
           >
             {c.title}
@@ -56,7 +56,7 @@ export function ShopFilters({ collections }: { collections: Collection[] }) {
           defaultValue={q}
           placeholder="Search mattresses, pillows…"
           onChange={(e) => update({ q: e.target.value })}
-          className="w-full rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.03)] px-4 py-2.5 text-sm text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus:border-[rgba(201,163,106,0.5)]"
+          className="w-full rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.03)] px-4 py-2.5 text-sm text-[var(--ink)] outline-none placeholder:text-[var(--ink-faint)] focus:border-[rgba(212,193,165,0.5)]"
         />
       </label>
     </div>

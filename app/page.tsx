@@ -12,15 +12,17 @@ export default function HomePage() {
     <>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(201,163,106,0.22),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(212,193,165,0.1),transparent_55%)]" />
           <div className="absolute inset-y-0 right-0 w-full bg-[linear-gradient(90deg,var(--bg)_18%,transparent_70%)] md:w-[70%]" />
         </div>
 
         <div className="container relative grid min-h-[calc(100svh-4.25rem)] items-center py-16 md:py-20">
           <div className="max-w-xl">
             <p className="eyebrow fade-up">Mattresses, pillows, foundations</p>
-            <BrandLogo width={420} height={243} priority className="fade-up mt-5" />
-            <h1 className="sr-only">Somnara</h1>
+            <BrandLogo width={120} height={120} priority className="fade-up mt-5" />
+            <h1 className="font-display fade-up-delay mt-5 text-[clamp(2.8rem,7vw,5rem)] leading-[0.95] tracking-[0.14em] text-[var(--ink)]">
+              SOMNARA
+            </h1>
             <p className="fade-up-delay-2 mt-5 max-w-md text-lg leading-relaxed text-[var(--ink-muted)]">
               Sleep systems engineered as a set—hybrids, latex, pillows, and
               box springs that share the same cover language and sizing.
@@ -55,7 +57,7 @@ export default function HomePage() {
               <Link
                 key={c.handle}
                 href={`/collections/${c.handle}`}
-                className="rounded-2xl border border-[var(--line)] bg-[rgba(255,255,255,0.02)] p-6 transition-colors hover:border-[rgba(201,163,106,0.4)] hover:bg-[rgba(201,163,106,0.06)]"
+                className="rounded-2xl border border-[var(--line)] bg-[rgba(255,255,255,0.02)] p-6 transition-colors hover:border-[rgba(212,193,165,0.4)] hover:bg-[rgba(212,193,165,0.06)]"
               >
                 <h3 className="font-display text-2xl tracking-tight">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--ink-muted)]">
@@ -80,7 +82,7 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-[var(--line)] py-16 md:py-20">
-        <div className="container grid gap-8 rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(135deg,rgba(201,163,106,0.12),rgba(18,20,26,0.2))] p-8 md:grid-cols-[1.2fr_1fr] md:p-12">
+        <div className="container grid gap-8 rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(135deg,rgba(212,193,165,0.1),rgba(5,7,10,0.2))] p-8 md:grid-cols-[1.2fr_1fr] md:p-12">
           <div>
             <p className="eyebrow">Shopify-ready</p>
             <h2 className="font-display mt-3 text-3xl tracking-tight md:text-4xl">

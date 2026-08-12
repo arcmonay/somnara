@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #14161f;
-  --bg-elevated: #1c1f2b;
-  --bg-soft: #252a3a;
-  --ink: #f4efe6;
-  --ink-muted: #b7b0a4;
-  --ink-faint: #7d766c;
-  --ember: #c9a36a;
-  --ember-deep: #9a7540;
-  --copper: #e0c9a0;
-  --line: rgba(244, 239, 230, 0.12);
-  --glow: rgba(201, 163, 106, 0.35);
+  --bg: #05070a;
+  --bg-elevated: #0c0f14;
+  --bg-soft: #141820;
+  --ink: #d4c1a5;
+  --ink-muted: #b89f81;
+  --ink-faint: #8a7760;
+  --ember: #d4c1a5;
+  --ember-deep: #b89f81;
+  --copper: #d4c1a5;
+  --line: rgba(212, 193, 165, 0.14);
+  --glow: rgba(212, 193, 165, 0.22);
   --background: var(--bg);
   --foreground: var(--ink);
 }
@@ -55,7 +55,7 @@ input {
 
 ::selection {
   background: color-mix(in srgb, var(--ember) 55%, transparent);
-  color: #1a1d2e;
+  color: #05070a;
 }
 
 .font-display {
@@ -64,12 +64,12 @@ input {
 
 .brand-logo {
   height: auto;
-  border-radius: 0.6rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .brand-logo--nav {
-  max-height: 3.15rem;
+  max-height: 2.75rem;
   width: auto;
 }
 
@@ -78,8 +78,7 @@ input {
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(201, 163, 106, 0.16), transparent 55%),
-    radial-gradient(900px 500px at 0% 30%, rgba(90, 110, 160, 0.1), transparent 50%),
+    radial-gradient(900px 500px at 70% 0%, rgba(212, 193, 165, 0.08), transparent 55%),
     var(--bg);
 }
 
@@ -128,25 +127,25 @@ input {
 }
 
 .btn-primary {
-  background: linear-gradient(180deg, #d4b07a, var(--ember-deep));
-  color: #1a1d2e;
-  border: 1px solid color-mix(in srgb, white 12%, transparent);
-  box-shadow: 0 10px 30px rgba(154, 117, 64, 0.35);
+  background: linear-gradient(180deg, #d4c1a5, #b89f81);
+  color: #05070a;
+  border: 1px solid color-mix(in srgb, white 10%, transparent);
+  box-shadow: 0 10px 30px rgba(184, 159, 129, 0.22);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(180deg, #e0c08a, #a67f48);
+  background: linear-gradient(180deg, #e0d0b4, #c4ab8c);
 }
 
 .btn-ghost {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(212, 193, 165, 0.04);
   color: var(--ink);
 }
 
 .btn-ghost:hover {
-  border-color: rgba(201, 163, 106, 0.45);
-  background: rgba(201, 163, 106, 0.08);
+  border-color: rgba(212, 193, 165, 0.45);
+  background: rgba(212, 193, 165, 0.08);
 }
 
 .eyebrow {

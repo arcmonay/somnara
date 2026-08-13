@@ -1,29 +1,32 @@
 export const metadata = {
-  title: "House",
-  description: "About Somnara sleep systems.",
+  title: "About",
+  description: "About Somnara sleep products.",
 };
 
 export default function AboutPage() {
   return (
-    <article className="suite-page" style={{ maxWidth: "38rem" }}>
-      <p className="eyebrow">House</p>
-      <h1 className="font-display turn-down__title" style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}>
-        Built like a bedroom line.
-      </h1>
-      <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--ink-muted)]">
+    <div className="page prose">
+      <h1 className="page__title">About Somnara</h1>
+      <p className="page__lede">
+        We make sleep shopping easier—mattresses, pillows, and foundations in one
+        clear catalog.
+      </p>
+      <div style={{ marginTop: "1.5rem", display: "grid", gap: "1rem" }}>
         <p>
-          Somnara is a mattress, pillow, and foundation catalog designed as one
-          storefront—hybrids next to latex, box springs next to power bases,
-          sheets cut for the same deep pockets.
+          Somnara is a mattress and bedroom essentials storefront designed like a
+          modern DTC sleep brand: straightforward navigation, product cards you can
+          compare at a glance, and a guide that helps you choose by feel and size.
         </p>
         <p>
-          This project ships with 100+ SKUs so the house feels complete from day
+          This project ships with 100+ SKUs so the catalog feels complete from day
           one. Import{" "}
-          <code className="text-[var(--copper)]">data/shopify-products.csv</code>
-          , add Storefront API credentials, and wire live checkout when you are
+          <code style={{ color: "var(--navy)", fontWeight: 600 }}>
+            data/shopify-products.csv
+          </code>
+          , add Storefront API credentials, and connect live checkout when you are
           ready.
         </p>
       </div>
-    </article>
+    </div>
   );
 }

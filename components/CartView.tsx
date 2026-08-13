@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ProductVisual } from "@/components/ProductVisual";
+import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
 import { formatMoney } from "@/lib/products-client";
 
@@ -10,39 +10,41 @@ export function CartView() {
 
   if (!items.length) {
     return (
-      <div className="max-w-md">
-        <p className="text-lg text-[var(--ink-muted)]">
-          The tray is empty. Request a bed from the linen closet.
+      <div>
+        <p style={{ color: "var(--blue-muted)", fontSize: "1.0625rem" }}>
+          Your cart is empty.
         </p>
-        <Link href="/shop" className="linen-link">
-          Walk the house →
+        <Link href="/shop" className="btn btn-primary" style={{ marginTop: "1.25rem" }}>
+          Continue shopping
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr]">
-      <div className="space-y-4">
+    <div className="cart-layout">
+      <div>
         {items.map(({ product, quantity }) => (
-          <div
-            key={product.handle}
-            className="grid grid-cols-[96px_1fr] gap-4 border border-[var(--line)] bg-white/5 p-3 sm:grid-cols-[120px_1fr_auto]"
-          >
-            <ProductVisual product={product} className="!aspect-square" />
-            <div className="min-w-0">
-              <Link
-                href={`/shop/${product.handle}`}
-                className="font-display text-xl tracking-tight hover:text-[var(--ember)]"
-              >
+          <div key={product.handle} className="cart-line">
+            <div className="cart-line__thumb">
+              <Image
+                src={product.image || `/products/${product.handle}.webp`}
+                alt={product.title}
+                fill
+                sizes="120px"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <Link href={`/shop/${product.handle}`} style={{ fontWeight: 600, color: "var(--navy)" }}>
                 {product.title}
               </Link>
-              <p className="mt-1 text-sm text-[var(--ink-muted)]">
+              <p style={{ margin: "0.35rem 0 0", color: "var(--blue-muted)", fontSize: "0.9rem" }}>
                 {formatMoney(product.price)}
               </p>
-              <div className="mt-3 flex items-center gap-3">
-                <label className="text-xs uppercase tracking-[0.12em] text-[var(--ink-faint)]">
-                  Qty
+              <div style={{ marginTop: "0.75rem", display: "flex", gap: "1rem", alignItems: "center" }}>
+                <label style={{ fontSize: "0.8125rem", color: "var(--blue-muted)" }}>
+                  Qty{" "}
                   <input
                     type="number"
                     min={1}
@@ -50,42 +52,64 @@ export function CartView() {
                     onChange={(e) =>
                       setQuantity(product.handle, Number(e.target.value))
                     }
-                    className="ml-2 w-16 border border-[var(--line)] bg-transparent px-2 py-1 text-sm"
+                    style={{
+                      marginLeft: "0.35rem",
+                      width: "3.5rem",
+                      border: "1px solid var(--line)",
+                      borderRadius: "0.5rem",
+                      padding: "0.25rem 0.4rem",
+                    }}
                   />
                 </label>
                 <button
                   type="button"
                   onClick={() => removeItem(product.handle)}
-                  className="text-xs text-[var(--ink-faint)] hover:text-[var(--ember)]"
+                  style={{
+                    background: "none",
+                    border: 0,
+                    color: "var(--blue-muted)",
+                    cursor: "pointer",
+                    fontSize: "0.8125rem",
+                  }}
                 >
                   Remove
                 </button>
               </div>
             </div>
-            <p className="hidden text-right font-semibold sm:block">
+            <p style={{ fontWeight: 700, color: "var(--navy)", textAlign: "right" }}>
               {formatMoney(product.price * quantity)}
             </p>
           </div>
         ))}
       </div>
 
-      <aside className="h-fit border border-[var(--line)] bg-white/5 p-6 lg:sticky lg:top-24">
-        <h2 className="font-display text-2xl tracking-tight">Order summary</h2>
-        <div className="mt-6 flex justify-between text-sm">
-          <span className="text-[var(--ink-muted)]">Subtotal</span>
-          <span className="font-semibold">{formatMoney(subtotal)}</span>
+      <aside className="cart-summary">
+        <h2>Order summary</h2>
+        <div className="cart-summary__row">
+          <span>Subtotal</span>
+          <span>{formatMoney(subtotal)}</span>
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-[var(--ink-faint)]">
-          Checkout connects to Shopify once your store credentials are set. Until
-          then, cart state is saved locally in this browser.
+        <p className="cart-summary__note">
+          Checkout connects to Shopify once store credentials are set. Until then,
+          cart state stays in this browser.
         </p>
-        <button type="button" className="btn btn-primary mt-6 w-full" disabled>
+        <button type="button" className="btn btn-primary" style={{ width: "100%", marginTop: "1.15rem" }} disabled>
           Checkout via Shopify
         </button>
-        <button type="button" onClick={clear} className="btn btn-ghost mt-3 w-full">
+        <button type="button" onClick={clear} className="btn btn-ghost" style={{ width: "100%", marginTop: "0.65rem" }}>
           Clear cart
         </button>
-        <Link href="/shop" className="mt-4 block text-center text-sm text-[var(--ember)]">
+        <Link
+          href="/shop"
+          style={{
+            display: "block",
+            textAlign: "center",
+            marginTop: "1rem",
+            fontSize: "0.9rem",
+            fontWeight: 600,
+            color: "var(--blue-mid)",
+          }}
+        >
           Keep shopping
         </Link>
       </aside>

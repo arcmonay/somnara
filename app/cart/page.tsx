@@ -1,14 +1,12 @@
 import { CartView } from "@/components/CartView";
 
-export const metadata = { title: "Tray" };
+export const metadata = { title: "Cart" };
 
 export default function CartPage() {
   return (
-    <div className="suite-page">
-      <h1 className="font-display turn-down__title" style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}>
-        The tray
-      </h1>
-      <div className="mt-10">
+    <div className="page">
+      <h1 className="page__title">Your cart</h1>
+      <div style={{ marginTop: "2rem" }}>
         <CartView />
       </div>
     </div>

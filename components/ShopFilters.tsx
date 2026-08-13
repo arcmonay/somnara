@@ -21,38 +21,34 @@ export function ShopFilters({ collections }: { collections: Collection[] }) {
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap gap-x-5 gap-y-2">
+    <div className="filters">
+      <div className="filter-row">
         <button
           type="button"
+          className={`filter-chip ${active === "all" ? "is-on" : ""}`}
           onClick={() => update({ collection: "all" })}
-          className={`text-[0.72rem] uppercase tracking-[0.18em] ${
-            active === "all" ? "text-[var(--ink)]" : "text-[var(--ink-faint)]"
-          }`}
         >
-          The house
+          All
         </button>
         {collections.map((c) => (
           <button
             key={c.handle}
             type="button"
+            className={`filter-chip ${active === c.handle ? "is-on" : ""}`}
             onClick={() => update({ collection: c.handle })}
-            className={`text-[0.72rem] uppercase tracking-[0.18em] ${
-              active === c.handle ? "text-[var(--ink)]" : "text-[var(--ink-faint)]"
-            }`}
           >
             {c.title}
           </button>
         ))}
       </div>
-      <label className="block w-full max-w-sm">
+      <label>
         <span className="sr-only">Search products</span>
         <input
           type="search"
           defaultValue={q}
-          placeholder="Look for a bed…"
+          placeholder="Search mattresses, pillows…"
           onChange={(e) => update({ q: e.target.value })}
-          className="w-full border-0 border-b border-[var(--line)] bg-transparent px-0 py-2 text-sm outline-none placeholder:text-[var(--ink-faint)] focus:border-[var(--ember)]"
+          className="search-input"
         />
       </label>
     </div>

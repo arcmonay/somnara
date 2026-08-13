@@ -33,19 +33,19 @@ export default async function CollectionPage({ params }: Props) {
   const products = getProductsByCollection(slug);
 
   return (
-    <div className="suite-page">
-      <p className="mb-4 text-[0.72rem] uppercase tracking-[0.18em] text-[var(--ink-faint)]">
-        <Link href="/shop">The beds</Link>
-        <span className="mx-2">·</span>
-        <span>{collection.title}</span>
-      </p>
-      <h1 className="font-display turn-down__title" style={{ fontSize: "clamp(2.6rem, 6vw, 4.4rem)" }}>
+    <div className="page">
+      <p className="pdp__crumb">
+        <Link href="/shop">Shop</Link>
+        <span aria-hidden="true"> / </span>
         {collection.title}
-      </h1>
-      <p className="mt-4 mb-10 max-w-md text-[var(--ink-muted)]">
-        {collection.description} {products.length} pieces in this room.
       </p>
-      <ProductGrid products={products} />
+      <h1 className="page__title">{collection.title}</h1>
+      <p className="page__lede">
+        {collection.description} {products.length} products.
+      </p>
+      <div style={{ marginTop: "2rem" }}>
+        <ProductGrid products={products} />
+      </div>
     </div>
   );
 }

@@ -1,47 +1,60 @@
+import Link from "next/link";
+
 export const metadata = {
-  title: "Sleep",
-  description: "How Somnara mattresses, pillows, and foundations are specified.",
+  title: "Sleep Guide",
+  description: "How to choose a Somnara mattress, pillow, and foundation.",
 };
 
 export default function SleepPage() {
+  const steps = [
+    {
+      n: "01",
+      title: "Mattresses",
+      copy: "Start with construction—hybrid, latex, foam, or innerspring—then pick a series that fits your room.",
+    },
+    {
+      n: "02",
+      title: "Feel",
+      copy: "Compare firmness from plush to firm on one simple scale. Match how you sleep, not a buzzword.",
+    },
+    {
+      n: "03",
+      title: "Size",
+      copy: "Twin through Cal King. Same cover language across sizes—change only the footprint.",
+    },
+    {
+      n: "04",
+      title: "Compare",
+      copy: "Hold two builds side by side: material, profile, and feel before you add to cart.",
+    },
+    {
+      n: "05",
+      title: "Sleep goals",
+      copy: "Cooler surface, quieter motion, or a deeper cradle—pick a preference, then finish with pillow and foundation.",
+    },
+  ];
+
   return (
-    <article className="suite-page" style={{ maxWidth: "40rem" }}>
-      <p className="eyebrow">Sleep</p>
-      <h1 className="font-display turn-down__title" style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}>
-        A bed is a system.
-      </h1>
-      <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--ink-muted)]">
-        <p>
-          Firmness, fill, and foundation work together. A plush hybrid on a
-          sagging box spring does not sleep like the same hybrid on a locked
-          low-profile base.
-        </p>
-        <p>
-          Somnara listings are specified the way a showroom would: construction,
-          size, cover, and profile—so you can match a Queen Harbor hybrid to the
-          Harbor foundation and the same-cover pillows.
-        </p>
-      </div>
-      <dl className="directory__list mt-10">
-        {[
-          ["Hybrid", "Coils for bounce, foam for contour. The default adult bed."],
-          ["Latex", "Buoyant, cooler, and heavier. Best for hot sleepers."],
-          ["Memory foam", "Slow contour, motion isolation, denser feel."],
-          ["Foundation", "The frame that keeps the warranty honest."],
-        ].map(([k, v], i) => (
-          <div key={k} className="directory__list">
-            <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-t border-[var(--line)] py-4">
-              <span className="text-[0.78rem] tracking-[0.12em] text-[var(--ink-faint)]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <dt className="font-display text-2xl">{k}</dt>
-                <dd className="mt-1 text-sm text-[var(--ink-muted)]">{v}</dd>
-              </div>
+    <div className="page prose">
+      <h1 className="page__title">Sleep guide</h1>
+      <p className="page__lede">
+        A clearer path to the right bed: mattresses → feel → size → compare →
+        goals. Comfort guidance only—not medical advice.
+      </p>
+      <ol className="step-list">
+        {steps.map((step) => (
+          <li key={step.n}>
+            <span>{step.n}</span>
+            <div>
+              <strong>{step.title}</strong>
+              <em>{step.copy}</em>
             </div>
-          </div>
+          </li>
         ))}
-      </dl>
-    </article>
+      </ol>
+      <Link href="/shop" className="btn btn-primary" style={{ marginTop: "2rem" }}>
+        Shop mattresses
+      </Link>
+    </div>
   );
 }

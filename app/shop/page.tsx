@@ -9,8 +9,8 @@ import {
 } from "@/lib/products";
 
 export const metadata = {
-  title: "The beds",
-  description: "Browse 100+ Somnara mattresses, pillows, foundations, and bedroom bundles.",
+  title: "Shop",
+  description: "Browse Somnara mattresses, pillows, foundations, and bedroom bundles.",
 };
 
 type Props = {
@@ -30,22 +30,18 @@ export default async function ShopPage({ searchParams }: Props) {
   }
 
   return (
-    <div className="suite-page">
-      <h1 className="font-display turn-down__title" style={{ fontSize: "clamp(2.6rem, 6vw, 4.4rem)" }}>
-        The linen closet
-      </h1>
-      <p className="mt-4 mb-10 max-w-md text-[var(--ink-muted)]">
-        {products.length} pieces
+    <div className="page">
+      <h1 className="page__title">Shop all</h1>
+      <p className="page__lede">
+        {products.length} products
         {collection
           ? ` in ${collections.find((c) => c.handle === collection)?.title ?? collection}`
           : ""}
-        {q ? ` matching “${q}”` : ""}. Requested like a hotel, not a warehouse.
+        {q ? ` matching “${q}”` : ""}.
       </p>
-      <div className="mb-12">
-        <Suspense fallback={<div className="h-12" />}>
-          <ShopFilters collections={collections} />
-        </Suspense>
-      </div>
+      <Suspense fallback={<div style={{ height: "4rem" }} />}>
+        <ShopFilters collections={collections} />
+      </Suspense>
       <ProductGrid products={products} />
     </div>
   );

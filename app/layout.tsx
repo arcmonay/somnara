@@ -1,38 +1,32 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { CartProvider } from "@/lib/cart-context";
 import "./globals.css";
 
-const display = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  axes: ["SOFT", "opsz"],
-});
-
-const body = Manrope({
-  variable: "--font-manrope",
+const sans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Somnara — Mattresses, Pillows & Sleep Systems",
+    default: "Somnara — Mattresses, Pillows & Sleep Essentials",
     template: "%s · Somnara",
   },
   description:
-    "Hybrid mattresses, pillows, box springs, and bedroom bundles. A Shopify-ready sleep catalog.",
+    "Shop mattresses, pillows, bedding, and foundations. A Shopify-ready sleep catalog inspired by modern DTC mattress retail.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
+    <html lang="en" className={`${sans.variable} h-full`}>
       <body className="min-h-full antialiased">
         <CartProvider>
-          <div className="suite">
+          <div className="store">
             <Header />
-            <main className="linen">{children}</main>
+            <main className="store-main">{children}</main>
             <Footer />
           </div>
         </CartProvider>

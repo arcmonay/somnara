@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { ProductGrid } from "@/components/ProductGrid";
-import { ProductVisual } from "@/components/ProductVisual";
 import {
   formatMoney,
   getCollection,
@@ -35,69 +35,74 @@ export default async function ProductPage({ params }: { params: Params }) {
   const collection = getCollection(product.collection);
   const related = getProductsByCollection(product.collection)
     .filter((p) => p.id !== product.id)
-    .slice(0, 4);
+    .slice(0, 3);
+  const src = product.image || `/products/${product.handle}.webp`;
 
   return (
     <>
-      <article className="suite-page grid gap-10 md:grid-cols-2">
-        <ProductVisual product={product} priority className="!aspect-square" />
-        <div>
-          {collection ? (
-            <p className="text-sm text-[var(--ink-faint)]">
-              <Link
-                href={`/collections/${collection.handle}`}
-                className="hover:text-[var(--ink)]"
-              >
-                {collection.title}
-              </Link>
-            </p>
-          ) : null}
-          <h1 className="font-display mt-2 text-4xl tracking-tight md:text-5xl">
-            {product.title}
-          </h1>
-          <p className="mt-4 text-2xl font-semibold">
-            {formatMoney(product.price)}
-            {product.compareAtPrice ? (
-              <span className="ml-3 text-base font-normal text-[var(--ink-faint)] line-through">
-                {formatMoney(product.compareAtPrice)}
-              </span>
-            ) : null}
-          </p>
-          <p className="mt-5 max-w-xl text-[var(--ink-muted)] leading-relaxed">
-            {product.description}
-          </p>
-          <ul className="mt-8 space-y-3 border-t border-[var(--line)] pt-6 text-sm">
-            {[
-              ["Material", product.material],
-              ["Size", product.size],
-              ["Finish", product.finish],
-              ["Profile", product.highlight],
-              ["Weight", `${product.weightLbs} lb`],
-              ["SKU", product.sku],
-            ].map(([label, value]) => (
-              <li key={label} className="flex justify-between gap-4">
-                <span className="text-[var(--ink-faint)]">{label}</span>
-                <strong>{value}</strong>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8">
-            <AddToCartButton handle={product.handle} />
+      <div className="page">
+        <article className="pdp">
+          <div className="pdp__media">
+            <Image
+              src={src}
+              alt={product.title}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
-        </div>
-      </article>
+          <div>
+            {collection ? (
+              <p className="pdp__crumb">
+                <Link href={`/collections/${collection.handle}`}>
+                  {collection.title}
+                </Link>
+              </p>
+            ) : null}
+            <h1 className="pdp__title">{product.title}</h1>
+            <p className="pdp__price">
+              {formatMoney(product.price)}
+              {product.compareAtPrice ? (
+                <span className="product-card__compare">
+                  {formatMoney(product.compareAtPrice)}
+                </span>
+              ) : null}
+            </p>
+            <p className="pdp__desc">{product.description}</p>
+            <ul className="pdp__specs">
+              {[
+                ["Material", product.material],
+                ["Size", product.size],
+                ["Finish", product.finish],
+                ["Profile", product.highlight],
+                ["Weight", `${product.weightLbs} lb`],
+                ["SKU", product.sku],
+              ].map(([label, value]) => (
+                <li key={label}>
+                  <span>{label}</span>
+                  <strong>{value}</strong>
+                </li>
+              ))}
+            </ul>
+            <div className="pdp__buy">
+              <AddToCartButton handle={product.handle} />
+              <Link href="/sleep" className="btn btn-outline">
+                Sleep guide
+              </Link>
+            </div>
+          </div>
+        </article>
+      </div>
 
       {related.length ? (
-        <section className="suite-page pt-0">
-          <div className="mb-8 max-w-xl">
-            <h2 className="font-display text-3xl tracking-tight">
-              Also in this room
-            </h2>
-            <p className="mt-2 text-[var(--ink-muted)]">
-              More options with a similar form factor.
-            </p>
+        <section className="section--soft">
+          <div className="section__inner">
+            <div className="section__head">
+              <h2>You may also like</h2>
+            </div>
+            <ProductGrid products={related} />
           </div>
-          <ProductGrid products={related} />
         </section>
       ) : null}
     </>

@@ -18,15 +18,12 @@ export function Header() {
   const { count } = useCart();
 
   return (
-    <header className="headboard">
-      <Link href="/cart" className="tray">
-        Tray{count > 0 ? ` ${count}` : ""}
+    <header className="duskbar">
+      <Link href="/" className="duskbar__mark">
+        <BrandLogo width={30} height={30} priority />
+        <span className="font-display">somnara</span>
       </Link>
-      <Link href="/" className="monogram">
-        <BrandLogo width={72} height={72} priority />
-        <span className="font-display suite-mark">SOMNARA</span>
-      </Link>
-      <nav className="stitches">
+      <nav className="duskbar__nav">
         {links.map((link) => {
           const active =
             pathname === link.href || pathname.startsWith(`${link.href}/`);
@@ -40,6 +37,9 @@ export function Header() {
             </Link>
           );
         })}
+        <Link href="/cart" className="duskbar__tray">
+          Tray{count > 0 ? ` ${count}` : ""}
+        </Link>
       </nav>
     </header>
   );
